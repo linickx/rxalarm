@@ -96,7 +96,6 @@
 			<html lang="en">
 			<head>
 			<meta charset="utf-8">
-			<meta name="robots" content="none" />
 
 			<link rel="stylesheet" type="text/css" href="<?php echo $www;?>/bootstrap/css/bootstrap.min.css">
 			<style>
