@@ -27,8 +27,8 @@
 				<!--Sidebar content-->
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#you" data-toggle="tab">You</a></li>
-					<li><a <a href="#api" data-toggle="tab">API Limits</a></li>
-					<li><a <a href="#delete" data-toggle="tab">Delete Account</a></li>
+					<li><a <a href="#aca" data-toggle="tab">API Limits</a></li>
+					<li><a <a href="#ade" data-toggle="tab">Delete Account</a></li>
 				</ul>
 			</div>
 			<div class="span10">
@@ -42,20 +42,43 @@
 
 						</div>
 
-						<div class="tab-pane" id="api">
-							<h3>Rackspace API LIMITS <small>- nothing is infinite</small></h3>
-							<p>LIMITS</p>
+						<div class="tab-pane" id="aca">
+							<img src="<?php echo $www;?>/img/loading.gif" alt="Loading..." height="16px" width="16px" /> Loading...
 						</div>
 
-						<div class="tab-pane" id="delete">
-							<h3>Delete your Data <small>- Missing you already!</small></h3>
-							<p>DEL</p>
+						<div class="tab-pane" id="ade">
+							<img src="<?php echo $www;?>/img/loading.gif" alt="Loading..." height="16px" width="16px" /> Loading...
 						</div>
 				</div>
 
 	 		</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+				
+	$('a[data-toggle="tab"]').on('shown', function (e) {
+
+		var nowtab = e.target // activated tab
+		var divid = $(nowtab).attr('href').substr(1);
+	  
+	  
+	  if(divid == "aca") {
+	    $.getJSON('<?php echo $www;?>/data.php?d=tab&i=aca').success(function(data){
+	          $("#"+divid).html(data.msg);
+	    });
+	  }
+
+	  if(divid == "ade") {
+	    $.getJSON('<?php echo $www;?>/data.php?d=tab&i=ade').success(function(data){
+	          $("#"+divid).html(data.msg);
+	    });
+	  }
+	  
+	});  
+	  
+	</script>
+
 	<?php
 
 	print_html5_foot();

@@ -9,7 +9,8 @@
 	i = ID
 		- alarm (tab: console-alarms) -- not used, this was a test!
 		- config (tab: console-config)
-		- cnt (tab: console-new-user {manual web hook entry} )	
+		- cnt (tab: console-new-user {manual web hook entry} )
+		- aca (tab: account-api)	
 
 	**/
 
@@ -36,6 +37,12 @@
 		case "cnt":
 			require_once('../libs/console_modal_newuser_manual.php'); // Manual WebHook Tabe for New Users		
 			break;
+		case "aca":
+			require_once('../libs/account_tab_apilimits.php'); // API Limits TAB (Account)	
+			break;
+		case "ade":
+			require_once('../libs/account_tab_del.php'); // Delete User Account Tab	
+			break;		
 		default:
 			die('404: Data not found');
 	}
