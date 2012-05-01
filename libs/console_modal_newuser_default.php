@@ -40,7 +40,7 @@
   				<div style="float:right;">
 					<label class="radio">
 						<input type="radio" name="location" id="location1" value="uk" checked>
-						<img src="<?php echo $www . "/img/gb.png";?>" alt="UK" /> UK
+						<img src="<?php echo $www . "/img/uk.png";?>" alt="UK" /> UK
 					</label>
 					<label class="radio">
 						<input type="radio" name="location" id="location2" value="us">
