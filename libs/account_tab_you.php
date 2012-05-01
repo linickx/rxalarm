@@ -38,7 +38,7 @@
 		}
 
 		if ($alarm == "error") {
-			$msg = '<strong>Error:</strong> Something is wrong with your cookies! <br /> Please re-set them here: <a href="' . $www . '">here</a>.';
+			$msg = '<strong>Error:</strong> Something is wrong with your cookies! <br /> Please re-set them here: <a href="' . $www . '/logout/rs">here</a>.';
 		} else {
 			$msg = '<strong>Info:</strong> I just wanted to let you know that we have detected your rackspace cookie... Don\'t worrry,  it \'s not a problem! <br> You can view them under the <b><i>API Limits</i></b> section.';
 		}

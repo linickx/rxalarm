@@ -68,9 +68,9 @@
 
 		**/
 
-		setcookie("rxalarm[rsuid]", $RSUID, time() + 2592000); 
-		setcookie("rxalarm[rsapi]", $RSAPI, time() + 2592000);
-		setcookie("rxalarm[rsloc]", $RSLOC, time() + 2592000);
+		setcookie("rxalarm[rsuid]", $RSUID, time() + 2592000, "/", $_SERVER["HTTP_HOST"], 1); 
+		setcookie("rxalarm[rsapi]", $RSAPI, time() + 2592000, "/", $_SERVER["HTTP_HOST"], 1);
+		setcookie("rxalarm[rsloc]", $RSLOC, time() + 2592000, "/", $_SERVER["HTTP_HOST"], 1);
 
 		$res = 'ok';
 		$msg = '<div class="alert alert-success"><strong>Nice Work!</strong><br />Your WebHook Token has been found, you are all ready to go.</div><p><a href="#" class="btn" data-dismiss="modal">Close</a></p>';

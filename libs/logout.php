@@ -6,9 +6,9 @@
 
 	**/
 
-	setcookie("rxalarm[uid]", "", time() - 3600);
-	setcookie("rxalarm[at]", "", time() - 3600);
-	setcookie("rxalarm[auth]", "", time() - 3600);
+	setcookie("rxalarm[uid]", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], 1);
+	setcookie("rxalarm[at]", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], 1);
+	setcookie("rxalarm[auth]", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], 1);
 	header("Location: $www");
 
 ?>

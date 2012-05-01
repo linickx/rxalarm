@@ -60,6 +60,9 @@
 				    </div>
 				  </div>
 				</div>
+				<div style="float:right;">
+					<a class="btn btn-danger" href="<?php echo $www;?>/logout/rs">Log Out of Rackspace API</a>
+				</div>
 
 			<?php
 

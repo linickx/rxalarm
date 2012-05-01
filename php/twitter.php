@@ -211,13 +211,13 @@ else {
     }
 
     // Set Cookies to identify user
-    setcookie("rxalarm[uid]", $uid, time() + 86400);
-    setcookie("rxalarm[at]", $access_token, time() + 86400);
+    setcookie("rxalarm[uid]", $uid, time() + 86400, "/", $_SERVER["HTTP_HOST"], 1);
+    setcookie("rxalarm[at]", $access_token, time() + 86400, "/", $_SERVER["HTTP_HOST"], 1);
 
     // Generate a checksum to authenticate user.
     $CookieAuth = "nb_" . $uid . SALT . $access_token;
     $CookieAuth = sha1($CookieAuth);
-	setcookie("rxalarm[auth]", $CookieAuth, time() + 86400);
+	setcookie("rxalarm[auth]", $CookieAuth, time() + 86400, "/", $_SERVER["HTTP_HOST"], 1);
 
     // remove the previous secret.
 	setcookie ("oauth_token_secret", "", time() - 3600); 
