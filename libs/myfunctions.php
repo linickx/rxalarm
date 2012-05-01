@@ -53,7 +53,13 @@
 
 				$user_twitter = unserialize($user_account->tw_account);
 
-				$user = array( "twitter" => $user_twitter, "uid" => $uid, "rs_wh" => $rs_wh);
+				$user_rackspace = unserialize($user_account->rs_account);
+
+				if (!isset($user_rackspace['timezone'])) {
+					$user_rackspace['timezone'] = "Europe/London"; // default timezone.
+				}
+
+				$user = array( "twitter" => $user_twitter, "uid" => $uid, "rs_wh" => $rs_wh, "rackspace" => $user_rackspace);
 			}
 
 			return true; // life is good!

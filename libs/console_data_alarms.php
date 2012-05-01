@@ -70,7 +70,7 @@
 
 				$time = $alarm->details->timestamp;
 				$time = $time / 1000;
-				date_default_timezone_set('Europe/London'); // TODO: Allow user to change this.
+				date_default_timezone_set($user['rackspace']['timezone']);
 
 				// Create a list of monitoring zones from array.
 

@@ -9,6 +9,7 @@
 		- tab (html content)
 		- nua (New User Automagic)
 		- num (New User Manual)
+		- ays (Account / You / Settings )
 		
 	i = ID
 		- pushed down to console_data_tabs.php
@@ -45,7 +46,10 @@ switch ($_REQUEST['d']) {
 			break;
 		case "num":
 			require_once('../libs/console_data_newuser_man.php'); // New user - Manual WebHook (Ajax Post, JSON Response)
-			break;			
+			break;
+		case "ays":
+			require_once('../libs/account_data_you.php'); // Settings from Account (you)
+			break;					
 		default:
 			die('404: Data not found');
 	}
