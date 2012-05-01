@@ -27,7 +27,7 @@
 				        How do I make this thing work? <small>i.e. Get alarms sent to [rx]Alarm</small>
 				      </a>
 				    </div>
-				    <div id="collapseOne" class="accordion-body collapse in">
+				    <div id="collapseOne" class="accordion-body collapse">
 				      <div class="accordion-inner">
 				        Whilst I code up the <em>Configuration</em> section you'll have to use <a href="https://github.com/racker/rackspace-monitoring-cli">raxmon</a> to create checks &amp; alarms to send to [rx]Alarm. See <a href="http://docs.rackspace.com/cm/api/v1.0/cm-getting-started/content/Introduction.html">the cloud monitoring getting started guide</a> on how to use raxmon. <br />
 				        Start by creating an entity and a check, then you'll need to create a webhook notification... like this..
