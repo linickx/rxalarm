@@ -102,6 +102,7 @@
 			<html lang="en">
 			<head>
 			<meta charset="utf-8">
+			<meta name="google-site-verification" content="QokEfecxpAZkKgdID7YlPMzzlCD388UWKXdRZhJi0CM" />
 
 			<link rel="stylesheet" type="text/css" href="<?php echo $www;?>/bootstrap/css/bootstrap.min.css">
 			<style>
@@ -182,6 +183,20 @@
 					&copy; Nick Bettison - <a href="http://www.linickx.com">linickx.com</a>
 				</footer>
 				</div> <!-- /.container -->
+
+				<script type="text/javascript">
+
+				  var _gaq = _gaq || [];
+				  _gaq.push(['_setAccount', 'UA-76334-10']);
+				  _gaq.push(['_trackPageview']);
+				
+				  (function() {
+				    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				  })();
+				
+				</script>
 		</body>
 		</html><?php
 		die();

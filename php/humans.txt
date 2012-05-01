@@ -1,0 +1,18 @@
+/* TEAM */
+
+Evil Overlord: Nick Bettison
+Site: http://www.linickx.com
+Twitter: linickx
+Location: London, UK.
+
+/* THANKS */
+
+* Rackspace Cloud Monitoring Team
+* Redhat Openshift Team
+* Twitter Bootstrap Creators
+* Github Crew
+
+/* SITE */
+
+Components: Redhat Linux, Apache, PHP, MySQL, Twitter Bootstrap, jQuery, OAuthSimple, ezSQL, phprackcloud
+Software: txt editor
