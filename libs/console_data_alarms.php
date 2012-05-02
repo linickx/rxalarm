@@ -66,6 +66,9 @@
 
 				// Real alarms.
 
+				$AlarmID = $row->id;
+				$ID = '<a target="_blank" href="' . $www . '/alarm/' . $AlarmID . '"><i class="icon-zoom-in"></i> ' . $AlarmID . ' </a>';
+
 				// Fix the timestamp for PHP use.
 
 				$time = $alarm->details->timestamp;
@@ -105,7 +108,7 @@
 			}
 
 			// Output ready for Json.
-			$output['aaData'][] = array($time, $state, $label, $mz, $checktype, $status);
+			$output['aaData'][] = array($time, $state, $label, $mz, $checktype, $status, $ID);
 
 		}
 	}

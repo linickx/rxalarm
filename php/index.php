@@ -39,7 +39,10 @@
 				break;
 			}
 			require_once("../libs/logout.php");		// ummm.. logout ;-)
-			break;	
+			break;
+		case "alarm":
+			require_once("../libs/alarm.php");	// Alarm Detailed View
+			break;			
 		default:
 			require_once("../libs/homepage.php");	// default, homepage.
 	}

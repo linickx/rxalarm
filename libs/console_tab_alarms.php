@@ -43,6 +43,7 @@
 				<th>Monitoring Zone</th>
 				<th>Type</th>
 				<th>Status</th>
+				<th>ID</th>
 			</tr>
 		</thead>
 		<tbody>
