@@ -2,18 +2,29 @@
 
 	/**
 
+		Delete Cookie Script
+
+	**/
+
+	setcookie("rxalarm[rsuid]", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], 1);
+	setcookie("rxalarm[rsapi]", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], 1);
+	setcookie("rxalarm[rsloc]", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], 1);
+
+
+	/**
+
 		User Log Out if Rackspace API Only
 
 	**/
 
-	if ($url[2] == "rs") {
-		require_once("../libs/logout_rs.php"); // Delete API Cookies.
+	if ($url[2] == "rs") { // Delete API Cookies Only
+		header("Location: $www");
 		die();
 	}
 
 	/**
 
-		User Log Out of App :)
+		Delete All Cookies, User gets logged out of App :)
 
 	**/
 
