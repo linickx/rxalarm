@@ -34,7 +34,7 @@
 			<div class="span6">
 				<h2>How much does this cost?</h2>
 				<p>
-					<strong>Nothing</strong>. [rx]Alarm is hosted on Openshift express is is currently free, cloud monitoring is currently free to and this code behind this is published on github for all to see!... The catch is that it is released under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">NonCommercial Creative Commons</a> license which means you can't sell this... if you want to make money from rxalarms contact me first and perhaps we can come to an agreement ;-)
+					<strong>Nothing</strong>. [rx]Alarm is hosted on <a href="http://openshift.redhat.com">Openshift Express</a> is is currently free, cloud monitoring is currently free to and this code behind this is <a href="https://github.com/linickx/rxalarm/">published on github</a> for all to see!... The catch is that it is released under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">NonCommercial Creative Commons</a> license which means you can't sell this... if you want to make money from rxalarms contact me first and perhaps we can come to an agreement ;-)
 				</p>
 
 			</div>

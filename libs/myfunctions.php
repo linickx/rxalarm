@@ -180,7 +180,29 @@
 		?>
 				<hr />
 				<footer>
-					&copy; Nick Bettison - <a href="http://www.linickx.com">linickx.com</a>
+
+					<div class="container-fluid">
+						<div class="row-fluid">
+
+							<div class="span2">
+								&copy; Nick Bettison - <a href="http://www.linickx.com">linickx.com</a>
+							</div>
+
+							<div class="span8">
+								&nbsp;
+							</div>
+
+							<div class="span2">	
+								<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=linickx&repo=rxalarm&type=fork"
+  allowtransparency="true" frameborder="0" scrolling="0" width="53px" height="20px"></iframe>
+
+  								<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=linickx&repo=rxalarm&type=watch"
+  allowtransparency="true" frameborder="0" scrolling="0" width="62px" height="20px"></iframe>
+
+							</div>
+						</div>
+					</div>
+
 				</footer>
 				</div> <!-- /.container -->
 
