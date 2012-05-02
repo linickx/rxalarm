@@ -6,6 +6,23 @@
 
 	**/
 
+	/**
+
+		Alarm Output
+
+	**/
+
+	if (isset($url[3])) {
+		require_once("../libs/console_demo_alarm.php");
+		die();
+	}
+
+	/**
+
+		Console Output.
+
+	**/
+
 	$head = '	<script src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>';
 	$head .= "\n";
 	$head .= '	<link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">';
@@ -62,6 +79,7 @@
 							<th>Monitoring Zone</th>
 							<th>Type</th>
 							<th>Status</th>
+							<th>ID</th>
 						</tr>
 					</thead>
 					<tbody>

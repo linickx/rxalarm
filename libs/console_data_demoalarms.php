@@ -23,6 +23,9 @@
 
 				// Test checks have different fields.
 
+				$AlarmID = $row->id;
+				$ID = '<a target="_blank" href="' . $www . '/console/demo/' . $AlarmID . '"><i class="icon-zoom-in"></i> ' . $AlarmID . ' </a>';
+
 				// Currently "tests" do not have a webhook - this is for the future - I plan to ask RackSpace to attach webhooks to tests :)
 
 				$time = "";
@@ -35,7 +38,7 @@
 			} 
 
 			// Output ready for Json.
-			$output['aaData'][] = array($time, $state, $label, $mz, $checktype, $status);
+			$output['aaData'][] = array($time, $state, $label, $mz, $checktype, $status, $ID);
 
 		}
 
