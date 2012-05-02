@@ -18,14 +18,8 @@
 			Fake Data for New Users
 
 		**/
-		$time = "";
-		$state = "Pending";
-		$label = "WebHook";
-		$mz = "";
-		$checktype = "Pending";
-		$status = "Webhook";
 
-		$output['aaData'][] = array($time, $state, $label, $mz, $checktype, $status);
+		$output['aaData'][] = array("", "Pending", "WebHook", "", "Pending", "WebHook", "");
 		
 
 	}  else { // Nope not new user, get data.
@@ -41,7 +35,7 @@
 		$results = $db->get_results("SELECT * from alarms WHERE owner = \"$owner\"");
 
 		if (!$results) { // No Data.
-			$output['aaData'][] = array("", "No", "Data", "", "No", "Data");
+			$output['aaData'][] = array("", "No", "Data", "", "No", "Data", "");
 			output_json($output);
 		}
 		
