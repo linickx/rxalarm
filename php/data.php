@@ -49,7 +49,10 @@ switch ($_REQUEST['d']) {
 			break;
 		case "ays":
 			require_once('../libs/account_data_you.php'); // Settings from Account (you)
-			break;					
+			break;
+		case "api":
+			require_once('../libs/console_data_apikey_modal.php'); // API Key (Modal)
+			break;						
 		default:
 			die('404: Data not found');
 	}

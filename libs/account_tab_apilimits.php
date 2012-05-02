@@ -9,6 +9,20 @@
 
 	function forceapimodal(){
 		require_once("../libs/console_modal_apikey.php");
+
+		?>
+
+		<script type="text/javascript" charset="utf-8">
+
+		$('#APIModal').on('hidden', function () {
+ 			 $.getJSON('<?php echo $www;?>/data.php?d=tab&i=aca').success(function(data){
+	          $("#aca").html(data.msg);
+	    	});
+		})
+
+		</script>
+
+		<?php
 	}
 
 ?>

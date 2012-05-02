@@ -5,40 +5,20 @@
 
 	**/	
 
-	require_once("../libs/rackcloudmanager.php"); // include the rackspace lib
-
-	function rsEND($res, $msg) { // Msg & Die.
-
-		$output = array ('response'=>$res,'msg'=> $msg);
-		output_json($output);
-	}
-
 	/**
-	
-		Start Here.
+
+	Get the API key from the modal, and test that it works.
 
 	**/
 
-	$RSUID = $_REQUEST['username'];
-	$RSAPI = $_REQUEST['apikey'];
-	$RSLOC = $_REQUEST['location'];
-
-	$Auth = new RackAuth($RSUID,$RSAPI,$RSLOC);
-	$Auth->auth();
-
-	if ($Auth->getXAuthToken() == "") {
-
-		$res = 'error';
-		$msg = '<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>Error!</strong><br />Oops, Something went wrong. Is you username &amp; API key correct?</div>';
-
-		rsEND($res, $msg); // No XAuthToken was given therefore... Authentication Failed!
-	}
-	
-	#echo '<pre>';
-	#print_r($Auth);
-	#echo '</pre><hr />';
+	require_once("../libs/console_data_apikey.php");
 	
 	/**
+
+	
+	Lib ^above^ didn't bomb-out... we are good to go!
+
+	--
 
 	Get the webhook token and save to MySQL.
 
