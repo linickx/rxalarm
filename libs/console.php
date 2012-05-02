@@ -5,6 +5,17 @@
 
 	**/
 
+	if ($url[2] == "demo") {
+		require_once("../libs/console_demo.php"); // Demo Console is Required.
+		die();
+	}
+
+	/**
+
+		Real Alarm Console
+
+	**/
+
 	authuser();
 
 	$head = '	<script src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>';

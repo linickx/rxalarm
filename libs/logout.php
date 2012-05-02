@@ -2,7 +2,18 @@
 
 	/**
 
-		User Log Out :)
+		User Log Out if Rackspace API Only
+
+	**/
+
+	if ($url[2] == "rs") {
+		require_once("../libs/logout_rs.php"); // Delete API Cookies.
+		die();
+	}
+
+	/**
+
+		User Log Out of App :)
 
 	**/
 

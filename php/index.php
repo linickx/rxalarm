@@ -18,10 +18,6 @@
 
 	switch ($url[1]) {
 		case "console":
-			if ($url[2] == "demo") {
-				require_once("../libs/console_demo.php"); // Demo Console.
-				break;
-			}
 			require_once("../libs/console.php");	// user logged in / console.
 			break;
 		case "help":
@@ -34,10 +30,6 @@
 			require_once("../libs/account.php");	// User Account Mgnt
 			break;	
 		case "logout":
-			if ($url[2] == "rs") {
-				require_once("../libs/logout_rs.php"); // Delete API Cookies.
-				break;
-			}
 			require_once("../libs/logout.php");		// ummm.. logout ;-)
 			break;
 		case "alarm":
