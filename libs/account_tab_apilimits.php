@@ -103,7 +103,9 @@
 					$Auth = new RackAuth($RSUID,$RSAPI,$RSLOC);
 					$Auth->auth();
 
-					if ($Auth->getXAuthToken() == "") { // Authentication Failed.
+					$AuthError = Request::getLastError();
+
+					if ($AuthError != "") { // Authentication Failed.
 
 						?>
 						<div class="alert alert-error"><strong>Error!</strong><br />Oops, Something went wrong. Is you username &amp; API key correct?</div>
