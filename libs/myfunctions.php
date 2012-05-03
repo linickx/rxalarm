@@ -28,6 +28,7 @@
 
 		// try to curb any buffer overflows.
 		$uid = substr($_COOKIE['rxalarm']['uid'], 0, 256);
+		$uid = preg_replace("/[^0-9]/", "", $uid); // Better UID Protection... all I need to do now is remove the safeish_uid references.
 		$access_token = substr($_COOKIE['rxalarm']['at'], 0, 256);
 		$uauth = substr($_COOKIE['rxalarm']['auth'], 0, 256);
 
