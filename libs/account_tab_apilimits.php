@@ -5,56 +5,16 @@
 
 	**/
 
-	require_once("../libs/rackcloudmanager.php"); // include the rackspace lib
+	require_once("../libs/console_api.php"); // bootstap the API.
 
-	function forceapimodal(){
-		require_once("../libs/console_modal_apikey.php");
+	if ($gotcookie) {
 
 		?>
-
-		<script type="text/javascript" charset="utf-8">
-
-		$('#APIModal').modal('show')
-
-		$('#APIModal').on('hide', function () {
-
-			if (apistatus == 'ok') {
-				$.getJSON('<?php echo $www;?>/data.php?d=tab&i=aca').success(function(data){
-	          		$("#aca").html(data.msg);
-	    		});
-			} else {
-				$.getJSON('<?php echo $www;?>/data.php?d=tab&i=art').success(function(data){
-	          		$("#aca").html(data.msg);
-	    		});
-			}
- 			 
-		})
-
-		</script>
-
-		<?php
-	}
-
-?>
 <h3>Rackspace API LIMITS <small>- nothing is infinite</small></h3>
 <p>The Cloud Monitoring API has limits, they are <a href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-rsource-limits.html">documented here</a>, this page will show your current quota usage.</p>
 <?php
 
-	if (isset($_COOKIE['rxalarm']['rsuid'])) { 
 
-			$alarm = "info";
-
-		if (!isset($_COOKIE['rxalarm']['rsapi'])) {
-			$alarm = "error";
-		}
-
-		if (!isset($_COOKIE['rxalarm']['rsloc'])) {
-			$alarm = "error";
-		}
-
-		if ($alarm == "error") {
-			forceapimodal();
-		} else {
 
 				/**
 
@@ -158,10 +118,12 @@
 							#echo '</pre>';
 
 					}
-		}
 
-	} else{
-
-		forceapimodal();
+	} else {
+		?><p><em>Waiting for API Key Modal....</em></p><?php
 	}
+
+
+
+
 ?>

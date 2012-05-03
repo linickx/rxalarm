@@ -56,24 +56,17 @@
 	</div>
 
 	<script type="text/javascript">
+
+	var activediv;
 				
 	$('a[data-toggle="tab"]').on('shown', function (e) {
 
 		var nowtab = e.target // activated tab
-		var divid = $(nowtab).attr('href').substr(1);
-	  
-	  
-	  if(divid == "aca") {
-	    $.getJSON('<?php echo $www;?>/data.php?d=tab&i=aca').success(function(data){
-	          $("#"+divid).html(data.msg);
+		activediv = $(nowtab).attr('href').substr(1);
+	
+	    $.getJSON('<?php echo $www;?>/data.php?d=tab&i='+activediv).success(function(data){
+	          $("#"+activediv).html(data.msg);
 	    });
-	  }
-
-	  if(divid == "ade") {
-	    $.getJSON('<?php echo $www;?>/data.php?d=tab&i=ade').success(function(data){
-	          $("#"+divid).html(data.msg);
-	    });
-	  }
 	  
 	});  
 	  

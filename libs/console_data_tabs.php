@@ -10,6 +10,7 @@
 		- alarm (tab: console-alarms) -- not used, this was a test!
 		- config (tab: console-config)
 		- cnt (tab: console-new-user {manual web hook entry} )
+		- you (tab: account-you)
 		- aca (tab: account-api)
 		- ade (tab: account-delete)
 		- art (tab: api-retry)
@@ -44,6 +45,9 @@
 		case "cnt":
 			require_once('../libs/console_modal_newuser_manual.php'); // Manual WebHook Tabe for New Users		
 			break;
+		case "you":
+			require_once('../libs/account_tab_you.php'); // You Tab (Account)		
+			break;	
 		case "aca":
 			require_once('../libs/account_tab_apilimits.php'); // API Limits TAB (Account)	
 			break;

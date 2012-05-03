@@ -25,12 +25,9 @@ $('#rslogin').click(function () {
 $('#APIModal').on('hide', function () {
 
 	if (apistatus == 'ok') {
-
-		var nowtab = e.target // activated tab
-		var divid = $(nowtab).attr('href').substr(1);
-		
-		  $.getJSON('<?php echo $www;?>/data.php?d=tab&i='+divid).success(function(data){
-		        $("#"+divid).html(data.msg);
+	
+		  $.getJSON('<?php echo $www;?>/data.php?d=tab&i='+activediv).success(function(data){
+		        $("#"+activediv).html(data.msg);
 		  });
 	}
 
