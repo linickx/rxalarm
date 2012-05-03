@@ -10,7 +10,14 @@
 		- alarm (tab: console-alarms) -- not used, this was a test!
 		- config (tab: console-config)
 		- cnt (tab: console-new-user {manual web hook entry} )
-		- aca (tab: account-api)	
+		- aca (tab: account-api)
+		- ade (tab: account-delete)
+		- art (tab: api-retry)
+		- svr (tab: console-config-server)
+		- chk (tab: console-config-checks)
+		- alm (tab: console-config-alarms)
+		- not (tab: console-config-notifications)
+
 
 	**/
 
@@ -45,7 +52,19 @@
 			break;
 		case "art":
 			require_once('../libs/console_apiretry.php'); // Message to retry API entry	
-			break;			
+			break;
+		case "svr":
+			require_once('../libs/console_tab_config_svr.php'); // Config Tab (Servers)	
+			break;
+		case "chk":
+			require_once('../libs/console_tab_config_chk.php'); // Config Tab (Checks)	
+			break;
+		case "alm":
+			require_once('../libs/console_tab_config_alm.php'); // Config Tab (Alarms)	
+			break;
+		case "not":
+			require_once('../libs/console_tab_config_not.php'); // Config Tab (Notifications)	
+			break;							
 		default:
 			die('404: Data not found');
 	}

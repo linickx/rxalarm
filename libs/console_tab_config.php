@@ -11,10 +11,10 @@
 	<div class="span2">
 		<!--Sidebar content-->
 		<ul class="nav nav-pills nav-stacked">
-			<li class="active"><a href="#servers" data-toggle="tab">Servers</a></li>
-			<li><a <a href="#checks" data-toggle="tab">Checks</a></li>
-			<li><a <a href="#calarms" data-toggle="tab">Alarms</a></li>
-			<li><a <a href="#notify" data-toggle="tab">Notifications</a></li>
+			<li class="active"><a href="#svr" data-toggle="pill">Servers</a></li>
+			<li><a <a href="#chk" data-toggle="pill">Checks</a></li>
+			<li><a <a href="#alm" data-toggle="pill">Alarms</a></li>
+			<li><a <a href="#not" data-toggle="pill">Notifications</a></li>
 		</ul>
 	</div>
 	<div class="span10">
@@ -22,22 +22,34 @@
 
 		<div class="tab-content">
 				
-				<div class="tab-pane active" id="servers">
-					<p>Comming Soon!</p>
+				<div class="tab-pane active" id="svr">
+					<?php require_once("../libs/console_tab_config_svr.php"); ?>
 				</div>
 
-				<div class="tab-pane" id="checks">
-					<p>CHECKS</p>
+				<div class="tab-pane" id="chk">
+					<p><img src="<?php echo $www;?>/img/loading.gif" alt="Loading..." height="16px" width="16px" /> Loading Checks...</p>
 				</div>
 
-				<div class="tab-pane" id="calarms">
-					<p>ALARMS</p>
+				<div class="tab-pane" id="alm">
+					<p><img src="<?php echo $www;?>/img/loading.gif" alt="Loading..." height="16px" width="16px" /> Loading Alarms...</p>
 				</div>
 
-				<div class="tab-pane" id="notify">
-					<p>NOTIFY</p>
+				<div class="tab-pane" id="not">
+					<p><img src="<?php echo $www;?>/img/loading.gif" alt="Loading..." height="16px" width="16px" /> Loading Notifications...</p>
 				</div>
 		</div>
 
 	</div>
 </div>
+<script type="text/javascript">
+	$('a[data-toggle="pill"]').on('shown', function (e) {
+
+		var nowpill = e.target // activated tab
+		var divid = $(nowpill).attr('href').substr(1);
+	  
+	    $.getJSON('<?php echo $www;?>/data.php?d=tab&i='+divid).success(function(data){
+	          $("#"+divid).html(data.msg);
+	    });
+	  
+	}); 
+</script> 

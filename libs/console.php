@@ -73,18 +73,9 @@
 					var nowtab = e.target // activated tab
 					var divid = $(nowtab).attr('href').substr(1);
 				  
-				  
-				  if(divid == "config") {
-				    $.getJSON('<?php echo $www;?>/data.php?d=tab&i=config').success(function(data){
+				    $.getJSON('<?php echo $www;?>/data.php?d=tab&i='+divid).success(function(data){
 				          $("#"+divid).html(data.msg);
 				    });
-				  }
-
-				  if(divid == "man") {
-				    $.getJSON('<?php echo $www;?>/data.php?d=tab&i=cnt').success(function(data){
-				          $("#"+divid).html(data.msg);
-				    });
-				  }
 				  
 				});  
 				  
