@@ -59,7 +59,7 @@
 
 <script type="text/javascript" charset="utf-8">
 
-	$('#APIModal').modal('show')
+	var apistatus;
 
 		$('#savekey').click(function () { 
 
@@ -71,8 +71,10 @@
 					success: function(data) {
 						if (data.response == 'ok') {
 							$("#frmOK").html(data.msg);
+							apistatus='ok';
 						} else {
 							$("#frmFAIL").html(data.msg);
+							apistatus='fail';
 						}
 				}});
 				

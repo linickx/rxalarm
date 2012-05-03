@@ -42,7 +42,10 @@
 			break;
 		case "ade":
 			require_once('../libs/account_tab_del.php'); // Delete User Account Tab	
-			break;		
+			break;
+		case "art":
+			require_once('../libs/console_apiretry.php'); // Message to retry API entry	
+			break;			
 		default:
 			die('404: Data not found');
 	}

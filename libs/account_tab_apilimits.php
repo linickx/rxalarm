@@ -14,10 +14,20 @@
 
 		<script type="text/javascript" charset="utf-8">
 
-		$('#APIModal').on('hidden', function () {
- 			 $.getJSON('<?php echo $www;?>/data.php?d=tab&i=aca').success(function(data){
-	          $("#aca").html(data.msg);
-	    	});
+		$('#APIModal').modal('show')
+
+		$('#APIModal').on('hide', function () {
+
+			if (apistatus == 'ok') {
+				$.getJSON('<?php echo $www;?>/data.php?d=tab&i=aca').success(function(data){
+	          		$("#aca").html(data.msg);
+	    		});
+			} else {
+				$.getJSON('<?php echo $www;?>/data.php?d=tab&i=art').success(function(data){
+	          		$("#aca").html(data.msg);
+	    		});
+			}
+ 			 
 		})
 
 		</script>
