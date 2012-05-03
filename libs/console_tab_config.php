@@ -39,17 +39,33 @@
 				</div>
 		</div>
 
+		<div style="float:right;">
+			<a class="btn btn-danger" href="<?php echo $www;?>/logout/rs">Log Out of Rackspace API</a>
+		</div>
+
 	</div>
 </div>
 <script type="text/javascript">
+
+	var activediv = "svr";
+
 	$('a[data-toggle="pill"]').on('shown', function (e) {
 
 		var nowpill = e.target // activated tab
-		var divid = $(nowpill).attr('href').substr(1);
+		activediv = $(nowpill).attr('href').substr(1);
 	  
-	    $.getJSON('<?php echo $www;?>/data.php?d=tab&i='+divid).success(function(data){
-	          $("#"+divid).html(data.msg);
-	    });
+	    $.getJSON('<?php echo $www;?>/data.php?d=tab&i='+activediv).success(function(data){
+			$("#"+activediv).html(data.msg);
+		});
 	  
+	});
+
+	$('#refresh').click(function () {
+
+		$.getJSON('<?php echo $www;?>/data.php?d=tab&r=1&i='+activediv).success(function(data){
+			$("#"+activediv).html(data.msg);
+		});
+
+		return false;
 	}); 
 </script> 
