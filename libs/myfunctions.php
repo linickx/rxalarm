@@ -193,13 +193,8 @@
 								&nbsp;
 							</div>
 
-							<div class="span2">	
-								<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=linickx&repo=rxalarm&type=fork"
-  allowtransparency="true" frameborder="0" scrolling="0" width="53px" height="20px"></iframe>
-
-  								<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=linickx&repo=rxalarm&type=watch"
-  allowtransparency="true" frameborder="0" scrolling="0" width="62px" height="20px"></iframe>
-
+							<div class="span2" style="text-align:right;">	
+								<a href="https://github.com/linickx/rxalarm" class="btn btn-mini btn-inverse">Fork Me</a>
 							</div>
 						</div>
 					</div>
