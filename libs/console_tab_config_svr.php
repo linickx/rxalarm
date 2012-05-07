@@ -90,6 +90,19 @@
 				</ul>
 			</div>
 			<h3>Servers / Entities <small>- Things that you monitor</small></h3>
+
+			<div class="accordion" id="svrdebug">
+				<div class="accordion-group" style="border:none;">
+				    <div id="collapseOneSVR" class="accordion-body collapse">
+				      <div class="accordion-inner" style="border:none;">
+				        	<pre>
+								<?php print_r($CacheSvrs); ?>
+							</pre>
+				      </div>
+				    </div>
+				</div>
+			</div>
+			
 			<p>&nbsp;</p>
 			
 			<div id="SVEfrmMSG">
@@ -154,18 +167,6 @@
 		?>
 				</tbody>
 			</table>
-
-			<div class="accordion" id="svrdebug">
-				<div class="accordion-group" style="border:none;">
-				    <div id="collapseOneSVR" class="accordion-body collapse">
-				      <div class="accordion-inner" style="border:none;">
-				        	<pre>
-								<?php print_r($CacheSvrs); ?>
-							</pre>
-				      </div>
-				    </div>
-				</div>
-			</div>
 
 			<script type="text/javascript">
 

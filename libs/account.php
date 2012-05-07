@@ -68,7 +68,16 @@
 	          $("#"+activediv).html(data.msg);
 	    });
 	  
-	});  
+	});
+
+	$('#refresh').click(function () {
+
+		$.getJSON('<?php echo $www;?>/data.php?d=tab&r=1&i='+activediv).success(function(data){
+			$("#"+activediv).html(data.msg);
+		});
+
+		return false;
+	});   
 	  
 	</script>
 
