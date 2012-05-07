@@ -56,14 +56,7 @@
 
 				**/
 
-					$RSUID = $_COOKIE['rxalarm']['rsuid'];
-					$RSAPI = $_COOKIE['rxalarm']['rsapi'];
-					$RSLOC = $_COOKIE['rxalarm']['rsloc'];
-
-					$Auth = new RackAuth($RSUID,$RSAPI,$RSLOC);
-					$Auth->auth();
-
-					$AuthError = Request::getLastError();
+					require_once("../libs/console_data_apikey_auth.php"); // Authenticate with RS
 
 					if ($AuthError != "") { // Authentication Failed.
 

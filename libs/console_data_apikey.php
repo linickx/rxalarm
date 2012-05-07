@@ -19,40 +19,16 @@
 
 	**/
 
-	if (!isset($_REQUEST['username'])) { // cookie fallback (if _POST failed or not required.)
-		$RSUID = $_COOKIE['rxalarm']['rsuid'];
-	} else {
-		$RSUID = $_REQUEST['username'];
-	}
-
-	if (!isset($_REQUEST['apikey'])) {
-		$RSAPI = $_COOKIE['rxalarm']['rsapi'];
-	} else {
-		$RSAPI = $_REQUEST['apikey'];
-	}
-	
-	if (!isset($_REQUEST['location'])) {
-		$RSLOC = $_COOKIE['rxalarm']['rsloc'];
-	} else {
-		$RSLOC = $_REQUEST['location'];
-	}
-
-	$Auth = new RackAuth($RSUID,$RSAPI,$RSLOC);
-	$Auth->auth();
-
-	$AuthError = Request::getLastError();
-	#error_log($AuthError, 0);
+	require_once("../libs/console_data_apikey_auth.php"); // Authenticate with RS
 
 	if ($AuthError != "") {
 
+		$LastCode = Request::getLastHTTPCode();
+
 		$res = 'error';
-		$msg = '<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>Error!</strong><br />Oops, Something went wrong. Is you username &amp; API key correct?</div>';
+		$msg = '<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>Error!</strong><br />Oops, Something went wrong. Is you username &amp; API key correct? <br />' . $LastCode . ': ' . $AuthError . '</div>';
 
 		rsEND($res, $msg); // No XAuthToken was given therefore... Authentication Failed!
 
 	}
-	
-	#echo '<pre>';
-	#print_r($Auth);
-	#echo '</pre><hr />';
 ?>
