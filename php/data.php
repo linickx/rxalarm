@@ -10,6 +10,7 @@
 		- nua (New User Automagic)
 		- num (New User Manual)
 		- ays (Account / You / Settings )
+		- css (Console/Config -> Server -> Save)
 		
 	i = ID
 		- pushed down to console_data_tabs.php
@@ -52,7 +53,10 @@ switch ($_REQUEST['d']) {
 			break;
 		case "api":
 			require_once('../libs/console_data_apikey_modal.php'); // API Key (Modal)
-			break;						
+			break;
+		case "css":
+			require_once('../libs/console_data_config_server_save.php'); // Update Existing RS Server (Entity)  with new  Details
+			break;								
 		default:
 			die('404: Data not found');
 	}

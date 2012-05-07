@@ -19,9 +19,23 @@
 
 	**/
 
-	$RSUID = $_REQUEST['username'];
-	$RSAPI = $_REQUEST['apikey'];
-	$RSLOC = $_REQUEST['location'];
+	if (!isset($_REQUEST['username'])) { // cookie fallback (if _POST failed or not required.)
+		$RSUID = $_COOKIE['rxalarm']['rsuid'];
+	} else {
+		$RSUID = $_REQUEST['username'];
+	}
+
+	if (!isset($_REQUEST['apikey'])) {
+		$RSAPI = $_COOKIE['rxalarm']['rsapi'];
+	} else {
+		$RSAPI = $_REQUEST['apikey'];
+	}
+	
+	if (!isset($_REQUEST['location'])) {
+		$RSLOC = $_COOKIE['rxalarm']['rsloc'];
+	} else {
+		$RSLOC = $_REQUEST['location'];
+	}
 
 	$Auth = new RackAuth($RSUID,$RSAPI,$RSLOC);
 	$Auth->auth();

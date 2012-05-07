@@ -18,6 +18,7 @@
 		- chk (tab: console-config-checks)
 		- alm (tab: console-config-alarms)
 		- not (tab: console-config-notifications)
+		- sve (tab: console-config-server-edit)
 
 
 	**/
@@ -60,6 +61,9 @@
 		case "svr":
 			require_once('../libs/console_tab_config_svr.php'); // Config Tab (Servers)	
 			break;
+		case "sve":
+			require_once('../libs/console_tab_config_svr_edit.php'); // Config Tab (Servers -> Edit Form)	
+			break;	
 		case "chk":
 			require_once('../libs/console_tab_config_chk.php'); // Config Tab (Checks)	
 			break;

@@ -89,23 +89,28 @@
 						?>
 					</li>
 					<li><i class="icon-refresh"></i> <a href="#" id="refresh">refresh</a></li>
+					<li>
+						<div class="accordion-heading">
+				    	<i class="icon-screenshot"></i> <a data-toggle="collapse" data-parent="#svrdebug" href="#collapseOneSVR">debug</a>
+				    </div>
+					</li>
 				</ul>
 			</div>
 			<h3>Servers / Entities <small>- Things that you monitor</small></h3>
 			<p>&nbsp;</p>
-		<?php
+			
+			<div id="SVEfrmMSG">
 
-		#echo '<pre>';
-		#print_r($CacheSvrs);
-		#echo '</pre>';
-
-		?>
+  			</div>
+		
 			<table id="my_table_id" class="table table-striped">
 				<thead>
 					<tr>
+						<th>&nbsp;</th>
 						<th>ID</th>
 						<th>Name</th>
 						<th>IP Address</th>
+						<th>&nbsp;</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -120,22 +125,33 @@
 				$style="even";
 			}
 
-			$ipcounter = 0;
 			$ipaddr = "";
+			$ipaddresforform = array();
 
-			foreach ($entity->ip_addresses as $ip) {
-				$ipaddr .= $ip;
+			foreach ($entity->ip_addresses as $key => $ip) {
 
-				if ($ipcounter > 0) {
-					$ipaddr .= ", ";
-				}
+				$ipaddresforform[$ipcounter] = array($ip, $key);
+
+				$ipaddr .=  $ip . ' <em>' . $key . '</em> <br/>';
 			}
+			$ipaddr .= "";
 			
 			?>
-				<tr class="<?php echo $style;?>">
+				<tr id="entity-<?php echo $entity->id; ?>" class="<?php echo $style;?>">
+					<td>
+						<form id="From-<?php echo $entity->id; ?>">
+						<input type="hidden" name="d" value="tab" />
+						<input type="hidden" name="i" value="sve" />
+						<input type="hidden" name="update" value="yep" />
+						<input type="hidden" name="entityid" value="<?php echo $entity->id; ?>" />
+						<input type="hidden" name="rslabel" value="<?php echo $entity->label; ?>" />
+						<input type="hidden" name="rsip" value='<?php echo serialize($ipaddresforform); ?>' />
+						</form>
+					</td>
 					<td><?php echo $entity->id; ?></td>
 					<td><?php echo $entity->label; ?></td>
 					<td><?php echo $ipaddr; ?></td>
+					<td><a href="#" class="edit" id="edit-<?php echo $entity->id; ?>" rel="tooltip" title="Edit <?php echo $entity->label; ?>"><i class="icon-edit"></i></a></td>
 				</tr>
 			<?php
 		
@@ -145,6 +161,46 @@
 		?>
 				</tbody>
 			</table>
+
+			<div class="accordion" id="svrdebug">
+				<div class="accordion-group" style="border:none;">
+				    <div id="collapseOneSVR" class="accordion-body collapse">
+				      <div class="accordion-inner" style="border:none;">
+				        	<pre>
+								<?php print_r($CacheSvrs); ?>
+							</pre>
+				      </div>
+				    </div>
+				</div>
+			</div>
+
+			<script type="text/javascript">
+
+    			$("a.edit").click(function () {
+
+    				var RSentityID = this.id.substr(5);
+
+					$.ajax({
+					type:'POST', 
+					url:'<?php echo $www;?>/data.php', 
+					data:$('#From-'+RSentityID).serialize(),
+					dataType: "json", 
+					success: function(data) {
+						
+						$("#entity-"+RSentityID).html(data.msg);
+						
+					}});
+
+					$('[rel=tooltip]').tooltip('hide')
+
+    				
+    			return false;
+				}); 
+
+				$("[rel=tooltip]").tooltip();
+
+			</script>
+
 		<?php
 		
 
