@@ -37,9 +37,10 @@ class Request
      * @param mixed $Extra extra POST data
      * @param bool $ReturnHeader 
      * @param bool $HTTPDelete used to perform a HTTP DELETE call
+     * @param boll $HTTPPut used to pergorm PUT POSTS (Addded by Nick B)
      * @return string Response 
      */
-    public static function post($Url, $Headers, $Extra=null, $ReturnHeader=false,$HTTPDelete=false)
+    public static function post($Url, $Headers, $Extra=null, $ReturnHeader=false,$HTTPDelete=false,$HTTPPut=false)
     {
         try{
             $c = curl_init($Url);
@@ -71,7 +72,10 @@ class Request
             curl_setopt($c, CURLOPT_CUSTOMREQUEST, "DELETE");
         }
 
-
+        if($HTTPPut) // Added by Nick
+        {
+            curl_setopt($c, CURLOPT_CUSTOMREQUEST, "PUT");
+        }
 
         if($ReturnHeader){
             curl_setopt($c,CURLOPT_HEADER, true);
@@ -134,6 +138,39 @@ class Request
         $Response = self::post($PostUrl, array("X-Auth-Token"=>$AuthToken,"Content-Type"=>"application/json"),$PostData,false,true);
         return $Response;
     }
+
+    /**
+       
+       NICK WAS HERE!
+
+    **/
+
+    /**
+     * This function is used to make a HTTP PUT (POST) call to rackspace cloud service. 
+     * internally used by all objects in this package. This function makes use of a 
+     * authenticated RackAuth object. 
+     * 
+     * HACKED BY NICK B
+     *
+     * @param string $Url (key part of the API access point)
+     * @param RackAuth $RackAuth Authenticated RackAuth object
+     * @return unknown
+     */
+    public function postAuthenticatedPutRequest($Url, RackAuth $RackAuth, $PostData=null)
+    {
+        $PostUrl = $RackAuth->getXServerManagementUrl()."/".$Url;
+        $AuthToken  = $RackAuth->getXAuthToken();
+        
+        //echo $AuthToken;
+        $Response = self::post($PostUrl, array("X-Auth-Token"=>$AuthToken,"Content-Type"=>"application/json"),$PostData,false,false,true);
+        return $Response;
+    }
+
+    /**
+
+        [DONE]
+
+    **/
     
     /**
      * Parse Headers and return the parsed data as an associated Array
