@@ -33,7 +33,11 @@
 		$AuthError = Request::getLastError();
 		#error_log($AuthError, 0);
 
-		apc_store($CacheAuthKey, $Auth, "43200"); // cache auth for 12hrs (http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/general-api-info-authentication.html#token-expiration)
+		if ($AuthError == "") {
+
+			apc_store($CacheAuthKey, $Auth, "43200"); // cache auth for 12hrs (http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/general-api-info-authentication.html#token-expiration)
+
+		} 
 
 		#error_log("==[FRESH AUTH]==", 0);
 
