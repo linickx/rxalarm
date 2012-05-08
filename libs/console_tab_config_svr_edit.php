@@ -33,7 +33,7 @@
 			<td><?php echo $RSentityID; ?></td>
 			<td><?php echo $RSentityLABEL; ?></td>
 			<td><?php echo $ipaddr; ?></td>
-			<td><a href="#" class="edit" id="edit-<?php echo $RSentityID; ?>" rel="tooltip" title="Edit <?php echo $RSentityLABEL; ?>"><i class="icon-edit"></i></a></td>
+			<td><a href="#" class="editbutton" id="edit-<?php echo $RSentityID; ?>" rel="tooltip" title="Edit <?php echo $RSentityLABEL; ?>"><i class="icon-edit"></i></a></td>
 		<?php
 
 	} else { 
@@ -47,8 +47,12 @@
 			<input type="hidden" name="rslabel" value="<?php echo $_REQUEST['rslabel']; ?>" />
 			<input type="hidden" name="rsip" value='<?php echo $_REQUEST['rsip']; ?>' />
 		</form>
+		<form id="Del-<?php echo $RSentityID; ?>">
+			<input type="hidden" name="d" value="csd" />
+			<input type="hidden" name="entityid" value="<?php echo $RSentityID; ?>" />
+		</form>
 	</td>
-	<td><?php echo $RSentityID; ?></td>
+	<td><button class="btn btn-danger btn-mini" id="delentity"><i class="icon-trash"></i> delete <?php echo $RSentityID; ?></button></td>
 	<td><input type="text" name="new-rslabel" class="txtbox" value="<?php echo $RSentityLABEL; ?>"></td>
 	<td>
 		<?php
@@ -129,6 +133,25 @@
 
 				if (data.response == 'ok') {
 					$("#entity-<?php echo $RSentityID; ?>").html(data.ok);	
+				} 
+		}});
+
+
+		return false;
+	});
+
+	$('#delentity').click(function () {
+		$.ajax({
+			type:'POST', 
+			url:'<?php echo $www;?>/data.php', 
+			data:$('#Del-<?php echo $RSentityID; ?>').serialize(),
+			dataType: "json", 
+			success: function(deldata) {
+
+				$("#SVEfrmMSG").html(deldata.msg);
+
+				if (deldata.response == 'ok') {
+					$("#entity-<?php echo $RSentityID; ?>").html(deldata.ok);	
 				} 
 		}});
 

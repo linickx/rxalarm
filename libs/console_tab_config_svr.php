@@ -84,8 +84,8 @@
 					<li><i class="icon-refresh"></i> <a href="#" id="refresh">refresh</a></li>
 					<li>
 						<div class="accordion-heading">
-				    	<i class="icon-screenshot"></i> <a data-toggle="collapse" data-parent="#svrdebug" href="#collapseOneSVR">debug</a>
-				    </div>
+				    		<i class="icon-screenshot"></i> <a data-toggle="collapse" data-parent="#svrdebug" href="#collapseOneSVR">debug</a>
+				    	</div>
 					</li>
 				</ul>
 			</div>
@@ -95,11 +95,45 @@
 				<div class="accordion-group" style="border:none;">
 				    <div id="collapseOneSVR" class="accordion-body collapse">
 				      <div class="accordion-inner" style="border:none;">
-				        	<pre>
-								<?php print_r($CacheSvrs); ?>
-							</pre>
+				        	<pre><?php print_r($CacheSvrs); ?></pre>
 				      </div>
 				    </div>
+
+				    <div id="collapseTwoSVR" class="accordion-body collapse">
+						<div class="accordion-inner" style="border:none;">
+
+							<div class="row-fluid">
+								<div class="span1">
+									&nbsp;
+								</div>
+
+								<div class="span8">
+									<form id="NewServer">
+
+										<input type="hidden" name="d" value="csa" />
+
+										<label>Server Label (Name)</label>
+										<input type="text" placeholder="My Server" name="addlabel">
+										<span class="help-inline">The label or hostname of you server</span>
+
+										<label>IP Address | Address Label  &nbsp; <a href="#" id="AddIPtoList" class="btn btn-mini btn-info"><i class="icon-plus"></i><a/></label> 
+										<ul id="NewServerIPs" class="unstyled">
+											<li><input type="text" placeholder="10.10.10.10" name="addip[]"> <input type="text" value="default" name="addipname[]"></li>
+										</ul>
+
+										<br />
+										<a class="btn" data-toggle="collapse" data-parent="#svrdebug" href="#collapseTwoSVR">Cancel</a> <a class="btn btn-primary" id="AddNewServerSave">Save</a>
+
+									</form>
+								</div>
+
+								<div class="span1">
+									&nbsp;
+								</div>
+							</div>
+
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -109,7 +143,7 @@
 
   			</div>
 		
-			<table id="my_table_id" class="table table-striped">
+			<table id="save_table_id" class="table table-striped">
 				<thead>
 					<tr>
 						<th>&nbsp;</th>
@@ -157,7 +191,7 @@
 					<td><?php echo $entity->id; ?></td>
 					<td><?php echo $entity->label; ?></td>
 					<td><?php echo $ipaddr; ?></td>
-					<td><a href="#" class="edit" id="edit-<?php echo $entity->id; ?>" rel="tooltip" title="Edit <?php echo $entity->label; ?>"><i class="icon-edit"></i></a></td>
+					<td><a href="#" class="editbutton" id="edit-<?php echo $entity->id; ?>" rel="tooltip" title="Edit <?php echo $entity->label; ?>"><i class="icon-edit"></i></a></td>
 				</tr>
 			<?php
 		
@@ -168,9 +202,11 @@
 				</tbody>
 			</table>
 
+			<a class="btn btn-success" data-toggle="collapse" data-parent="#svrdebug" href="#collapseTwoSVR">Add New Server</a>
+
 			<script type="text/javascript">
 
-    			$("a.edit").click(function () {
+    			$(".editbutton").live('click',function () {
 
     				var RSentityID = this.id.substr(5);
 
@@ -185,13 +221,39 @@
 						
 					}});
 
-					$('[rel=tooltip]').tooltip('hide')
+					//$('[rel=tooltip]').tooltip('hide')
 
     				
     			return false;
 				}); 
 
-				$("[rel=tooltip]").tooltip();
+				// $("[rel=tooltip]").tooltip();
+
+				$("#AddIPtoList").click(function () {
+
+					$("#NewServerIPs").append('<li><input type="text" placeholder="10.10.10.11" name="addip[]"> <input type="text" placeholder="eth1" name="addipname[]"></li>');
+				return false;
+				}); 
+
+				$("#AddNewServerSave").click(function () {
+
+					$.ajax({
+						type:'POST', 
+						url:'<?php echo $www;?>/data.php', 
+						data:$('#NewServer').serialize(),
+						dataType: "json", 
+						success: function(savedata) {
+
+							$("#SVEfrmMSG").html(savedata.msg);
+
+							if (savedata.response == 'ok') {
+								$("#save_table_id > tbody:last").after(savedata.ok);
+								$('#collapseTwoSVR').collapse('hide');	
+							} 
+					}});
+
+				return false;
+				});
 
 			</script>
 

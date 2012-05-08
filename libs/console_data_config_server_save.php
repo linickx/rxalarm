@@ -53,7 +53,10 @@
 		$ok .= '</form>
 				</td><td>' . $entityid . '</td><td>' . $label . '</td><td>' . $ipaddr . '</td>';
 
-		$ok .= '<td><a href="#" class="edit" id="edit-' . $entityid . '" rel="tooltip" title="Edit ' . $label . '"><i class="icon-edit"></i></a></td>';
+		$ok .= '<td><a href="#" class="editbutton" id="edit-' . $entityid . '" rel="tooltip" title="Edit ' . $label . '"><i class="icon-edit"></i></a></td>';
+
+		$CacheSvrsKey = $user['uid'] . "_ent"; // Cached Entities
+    	apc_delete($CacheSvrsKey); // purge the cache (to show the changes at next refresh)
 
     } else {
 

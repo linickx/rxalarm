@@ -11,6 +11,8 @@
 		- num (New User Manual)
 		- ays (Account / You / Settings )
 		- css (Console/Config -> Server -> Save)
+		- csa (Console/Config -> Server -> Add)
+		- csd (Console/Config -> Server - Delete)
 		
 	i = ID
 		- pushed down to console_data_tabs.php
@@ -56,7 +58,13 @@ switch ($_REQUEST['d']) {
 			break;
 		case "css":
 			require_once('../libs/console_data_config_server_save.php'); // Update Existing RS Server (Entity)  with new  Details
-			break;								
+			break;
+		case "csa":
+			require_once('../libs/console_data_config_server_add.php'); // Add New Server
+			break;
+		case "csd":
+			require_once('../libs/console_data_config_server_del.php'); // Delete a server / entity
+			break;										
 		default:
 			die('404: Data not found');
 	}

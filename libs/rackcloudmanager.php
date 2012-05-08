@@ -102,18 +102,20 @@ class Request
      * If you are planning to use a cached AuthToken, make sure to populate
      * a RackAuth object with at least AuthToken and XServerManagement Url. 
      *
+     * HACKED by NICK B - Added $ReturnHeader=false
+     *
      * @param string $Url (key part of the API access point)
      * @param RackAuth $RackAuth Authenticated RackAuth object
      * @param mixed $PostData
      * @return unknown
      */
-    public function postAuthenticatedRequest($Url, RackAuth $RackAuth, $PostData=null)
+    public function postAuthenticatedRequest($Url, RackAuth $RackAuth, $PostData=null, $ReturnHeader=false)
     {
         $PostUrl = $RackAuth->getXServerManagementUrl()."/".$Url;
         $AuthToken  = $RackAuth->getXAuthToken();
         
         //echo $AuthToken;
-        $Response = self::post($PostUrl, array("X-Auth-Token"=>$AuthToken,"Content-Type"=>"application/json"),$PostData);
+        $Response = self::post($PostUrl, array("X-Auth-Token"=>$AuthToken,"Content-Type"=>"application/json"),$PostData, $ReturnHeader);
         return $Response;
     }
 
