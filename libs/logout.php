@@ -10,6 +10,18 @@
 	setcookie("rxalarm[rsapi]", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], 1);
 	setcookie("rxalarm[rsloc]", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], 1);
 
+	/**
+
+		Delete Cached rackspace API Session
+
+	**/
+	
+	if (isset($_COOKIE['rxalarm']['uid'])) {
+		$uid = preg_replace("/[^0-9]/", "", $_COOKIE['rxalarm']['uid']);
+		$CacheAuthKey = $uid . "_rsauth"; // Users's Cached rackspace session
+		apc_delete($CacheAuthKey); // delete!
+	}
+	
 
 	/**
 

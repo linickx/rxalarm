@@ -21,9 +21,9 @@
 
 	require_once("../libs/console_data_apikey_auth.php"); // Authenticate with RS
 
-	if ($AuthError != "") {
+	$LastCode = Request::getLastHTTPCode();
 
-		$LastCode = Request::getLastHTTPCode();
+	if ($LastCode>=304) {
 
 		$res = 'error';
 		$msg = '<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>Error!</strong><br />Oops, Something went wrong. Is you username &amp; API key correct? <br />' . $LastCode . ': ' . $AuthError . '</div>';
