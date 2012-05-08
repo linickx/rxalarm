@@ -69,6 +69,8 @@
 				
 				$('a[data-toggle="tab"]').on('shown', function (e) {
 
+					// Bootstrap tab toggler
+
 					var nowtab = e.target // activated tab
 					var divid = $(nowtab).attr('href').substr(1);
 				  

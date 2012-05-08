@@ -16,7 +16,7 @@
 
 $('#rslogin').click(function () { 
 
-	$('#APIModal').modal('show')
+	$('#APIModal').modal('show'); // show the modal, we need a key!
 
 	return false;
 			
@@ -25,6 +25,8 @@ $('#rslogin').click(function () {
 $('#APIModal').on('hide', function () {
 
 	if (apistatus == 'ok') {
+
+		// If all is well, when the modal closes update the current div
 	
 		  $.getJSON('<?php echo $www;?>/data.php?d=tab&i='+activediv).success(function(data){
 		        $("#"+activediv).html(data.msg);

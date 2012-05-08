@@ -59,9 +59,11 @@
 
 <script type="text/javascript" charset="utf-8">
 
-	var apistatus;
+	var apistatus; // variable so that other DIVS know what's going on.
 
 		$('#savekey').click(function () { 
+
+			// Save Button
 
 				$.ajax({
 					type:'POST', 

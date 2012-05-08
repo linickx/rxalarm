@@ -208,7 +208,9 @@
 
     			$(".editbutton").on('click',function () {
 
-    				var RSentityID = this.id.substr(5);
+    				// Edit Button
+
+    				var RSentityID = this.id.substr(5); //The entity ID is derrived from the current buttons ID
 
 					$.ajax({
 					type:'POST', 
@@ -221,26 +223,32 @@
 						
 					}});
 
-					$(this).tooltip('hide')
+					$(this).tooltip('hide'); // hide the tooltip
 
-					$('#edit-'+RSentityID).remove();
+					$('#edit-'+RSentityID).remove(); // Delete the object from the DOM so we can re-use the ID.
 
     				
     			return false;
 				}); 
 
+    			// $("[rel=tooltip]").tooltip(); // => This doesn't work, as some tooltips come from Ajax/PHP
+
     			$("a.editbutton").on('hover', function() {
-					$(this).tooltip('show');
+					$(this).tooltip('show'); // show tooltip
             	});
-				// $("[rel=tooltip]").tooltip();
+				
 
 				$("#AddIPtoList").click(function () {
+
+					// Plus button for multiple IP addresses
 
 					$("#NewServerIPs").append('<li><input type="text" placeholder="10.10.10.11" name="addip[]"> <input type="text" placeholder="eth1" name="addipname[]"></li>');
 				return false;
 				}); 
 
 				$("#AddNewServerSave").click(function () {
+
+					// Submit the "add new server" form to rackspace
 
 					$.ajax({
 						type:'POST', 

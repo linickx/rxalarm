@@ -57,7 +57,7 @@
 
 	<script type="text/javascript">
 
-	var activediv;
+	var activediv; // the current DIV
 				
 	$('a[data-toggle="tab"]').on('shown', function (e) {
 
@@ -71,6 +71,8 @@
 	});
 
 	$('#refresh').click(function () {
+
+		// refresh current / active DIV
 
 		$.getJSON('<?php echo $www;?>/data.php?d=tab&r=1&i='+activediv).success(function(data){
 			$("#"+activediv).html(data.msg);

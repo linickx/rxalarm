@@ -204,6 +204,8 @@
 
 				<script type="text/javascript">
 
+				// Google Analytics
+
 				  var _gaq = _gaq || [];
 				  _gaq.push(['_setAccount', 'UA-76334-10']);
 				  _gaq.push(['_trackPageview']);

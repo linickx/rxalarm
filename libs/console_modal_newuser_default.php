@@ -73,9 +73,11 @@
 
 <script type="text/javascript" charset="utf-8">
 
-	$('#myModal').modal('show')
+	$('#myModal').modal('show'); // show the modal
 
 		$('#gettoken').click(function () { 
+
+				// user clicks get token button (post UID/API to rackspace)
 
 				$.ajax({
 					type:'POST', 

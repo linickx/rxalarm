@@ -20,6 +20,8 @@
 
 $('#savetoken').click(function () { 
 
+	// Click save button (post token to Database)
+
 	$.ajax({
 		type:'POST', 
 		url:'<?php echo $www;?>/data.php', 

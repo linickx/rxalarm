@@ -11,6 +11,8 @@
 
 	<script type="text/javascript" charset="utf-8">
 		$(document).ready(function() {
+
+			// Alarms Table
 	
 			oTable = $('#my_table_id').dataTable( {
 				"bProcessing": true,
@@ -23,13 +25,14 @@
 			} );
 	
 			function nicksloop() {
-				//alert("Hello World");
-				//oTable.fnDraw();
+				
+				// Loop for refreshing the table
+
 				oTable.fnReloadAjax();
 				setTimeout(nicksloop, 60000);
 			}
 			
-			nicksloop();
+			nicksloop(); // loop it!
 		} );
 	</script>
 			

@@ -43,9 +43,11 @@
 </div>
 <script type="text/javascript">
 
-	var activediv = "svr";
+	var activediv = "svr"; // set a default active DIV (to be used in all functions)
 
 	$('a[data-toggle="pill"]').on('shown', function (e) {
+
+		// Pill (Left hand) navigation
 
 		var nowpill = e.target // activated tab
 		activediv = $(nowpill).attr('href').substr(1);
@@ -57,6 +59,8 @@
 	});
 
 	$('#refresh').click(function () {
+
+		// Data / DIV refresh button
 
 		$.getJSON('<?php echo $www;?>/data.php?d=tab&r=1&i='+activediv).success(function(data){
 			$("#"+activediv).html(data.msg);

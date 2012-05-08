@@ -88,7 +88,9 @@
 	</td>
 <script type="text/javascript">
 
-	$('#cancelform').click(function () {
+	$('#cancelform').click(function () { 
+
+		// User clicks Cancel Button - which submits a form to get the "<tr>" back
 	
 		$('input[name="update"]').val('cancel');
 		$('input[name="i"]').val('sve');
@@ -107,18 +109,22 @@
 
 	$('input.txtbox').keyup(function () {
 
+		// The "typed" data is copied into our hidden form for submission
+
 		var ThisInput = this.name.substr(4);
 		var NewInput ='hid-' + ThisInput;
 		var ThisVAL = $(this).val();
 
 		$("input[name='" +NewInput+ "']").val(ThisVAL);
 
-		//$("input[name='" +NewInput+ "']").val($("input[name='" +this.name+ "']").val);
-		
-		//alert(ThisInput+" "+NewInput+" "+this.name);
 	});
 
 	$('#savechanges').click(function () {
+
+		// User clicks Save, which is posted to rackspace.
+
+		// #SVEfrmMSG == Warning Popup
+		// #entity-<?php echo $RSentityID; ?> == this.tr
 
 		//$('input[name="label"]').val($('input[name="new-rslabel"]').val);
 		//$('input[name="rsip"]').val($('input[name="new-rsip"]').val);
@@ -142,6 +148,12 @@
 	});
 
 	$('#delentity').click(function () {
+
+		// User clicks Delete, which is posted to rackspace
+
+		// #SVEfrmMSG == Warning Popup
+		// #entity-<?php echo $RSentityID; ?> == this.tr
+		
 		$.ajax({
 			type:'POST', 
 			url:'<?php echo $www;?>/data.php', 

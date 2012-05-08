@@ -17,17 +17,22 @@
 
 		<script type="text/javascript" charset="utf-8">
 
-		$('#APIModal').modal('show')
+		$('#APIModal').modal('show'); // show the modal, we need a key!
 
 		$('#APIModal').on('hide', function () {
 
-			if (apistatus == 'ok') {				
+			if (apistatus == 'ok') {	
+
+				// refresh current tab on sucess			
 				  
 				$.getJSON('<?php echo $www;?>/data.php?d=tab&i='+activediv).success(function(data){
 					$("#"+activediv).html(data.msg);
 				});
 
 			} else {
+
+				// failed, display retry.
+				
 				$.getJSON('<?php echo $www;?>/data.php?d=tab&i=art').success(function(data){
 	          		$("#"+activediv).html(data.msg);
 	    		});

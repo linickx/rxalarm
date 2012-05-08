@@ -47,6 +47,8 @@
 		<script type="text/javascript" charset="utf-8">
 		$(document).ready(function() {
 
+			// close any open alerts.
+
 			function autoclose() {
 				$(".alert").alert('close')
 			}
@@ -109,6 +111,8 @@
 <script type="text/javascript" charset="utf-8">
 
 $('#saveme').click(function () { 
+
+	// Save button - for posting changes to DB
 
 	$.ajax({
 		type:'POST', 
