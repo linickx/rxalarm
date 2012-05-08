@@ -24,8 +24,7 @@
 	$head .= "\n";
 	$head .= '<link rel="stylesheet" type="text/css" href="' . $www . '/inc/dt.css">';
 	$head .= "\n";
-	$head .= '<script type="text/javascript" charset="utf-8" language="javascript" src="' . $www . '/inc/dt.js"></script>';
-	
+	$head .= '<script type="text/javascript" charset="utf-8" language="javascript" src="' . $www . '/inc/dt.js"></script>';	
 
 	$title = "Console";
 	$nav = array('console' => 'true');

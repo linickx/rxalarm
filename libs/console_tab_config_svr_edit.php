@@ -23,8 +23,9 @@
 		?>
 			<td>
 				<form id="From-<?php echo $RSentityID; ?>">
-					<input type="hidden" name="i" value="tab" />
-					<input type="hidden" name="update" value="sve" />
+					<input type="hidden" name="d" value="tab" />
+					<input type="hidden" name="i" value="sve" />
+					<input type="hidden" name="update" value="yep" />
 					<input type="hidden" name="entityid" value="<?php echo $_REQUEST['entityid']; ?>" />
 					<input type="hidden" name="rslabel" value="<?php echo $_REQUEST['rslabel']; ?>" />
 					<input type="hidden" name="rsip" value='<?php echo $_REQUEST['rsip']; ?>' />

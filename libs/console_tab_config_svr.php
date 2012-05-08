@@ -206,7 +206,7 @@
 
 			<script type="text/javascript">
 
-    			$(".editbutton").live('click',function () {
+    			$(".editbutton").on('click',function () {
 
     				var RSentityID = this.id.substr(5);
 
@@ -221,12 +221,17 @@
 						
 					}});
 
-					//$('[rel=tooltip]').tooltip('hide')
+					$(this).tooltip('hide')
+
+					$('#edit-'+RSentityID).remove();
 
     				
     			return false;
 				}); 
 
+    			$("a.editbutton").on('hover', function() {
+					$(this).tooltip('show');
+            	});
 				// $("[rel=tooltip]").tooltip();
 
 				$("#AddIPtoList").click(function () {

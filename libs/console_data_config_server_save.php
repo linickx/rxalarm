@@ -18,7 +18,7 @@
 		$ipname = $_REQUEST['hid-rsipname'][$ipcounter];
 		$ip_addresses[$ipname] = $IP;
 
-		$ipaddresforform[$ipcounter] = array($ip, $ipname);
+		$ipaddresforform[$ipcounter] = array($IP, $ipname);
 		$ipaddr .=  $IP . ' <em>' . $ipname . '</em> <br/>';
 
 		$ipcounter++;
@@ -44,8 +44,9 @@
 
 		$ok = '<td>
 				<form id="From-' . $entityid . '">
-					<input type="hidden" name="i" value="tab" />
-					<input type="hidden" name="update" value="sve" />
+					<input type="hidden" name="d" value="tab" />
+					<input type="hidden" name="i" value="sve" />
+					<input type="hidden" name="update" value="yep" />
 					<input type="hidden" name="entityid" value="' . $entityid . '" />
 					<input type="hidden" name="rslabel" value="' . $label . '" />';
 
