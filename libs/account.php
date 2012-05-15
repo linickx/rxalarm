@@ -28,6 +28,8 @@
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#you" data-toggle="tab">You</a></li>
 					<li><a <a href="#aca" data-toggle="tab">API Limits</a></li>
+					<li><a <a href="#acu" data-toggle="tab">API Audit</a></li>
+					<li><a <a href="#aci" data-toggle="tab">API Info</a></li>
 					<li><a <a href="#ade" data-toggle="tab">Delete Account</a></li>
 				</ul>
 			</div>
@@ -43,6 +45,14 @@
 						</div>
 
 						<div class="tab-pane" id="aca">
+							<img src="<?php echo $www;?>/img/loading.gif" alt="Loading..." height="16px" width="16px" /> Loading...
+						</div>
+
+						<div class="tab-pane" id="acu">
+							<img src="<?php echo $www;?>/img/loading.gif" alt="Loading..." height="16px" width="16px" /> Loading...
+						</div>
+
+						<div class="tab-pane" id="aci">
 							<img src="<?php echo $www;?>/img/loading.gif" alt="Loading..." height="16px" width="16px" /> Loading...
 						</div>
 
@@ -70,16 +80,16 @@
 	  
 	});
 
-	$('#refresh').click(function () {
+	$('.tab-content').on('click', 'a.refreshbutton', function () {
 
-		// refresh current / active DIV
+		// Data / DIV refresh button
 
 		$.getJSON('<?php echo $www;?>/data.php?d=tab&r=1&i='+activediv).success(function(data){
 			$("#"+activediv).html(data.msg);
 		});
 
 		return false;
-	});   
+	});  
 	  
 	</script>
 

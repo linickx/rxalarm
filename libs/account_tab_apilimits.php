@@ -112,7 +112,7 @@
 											}
 										?>
 									</li>
-									<li><i class="icon-refresh"></i> <a href="#" id="refresh">refresh</a></li>
+									<li><i class="icon-refresh"></i> <a href="#" class="refreshbutton">refresh</a></li>
 									<li>
 										<div class="accordion-heading">
 								    	<i class="icon-screenshot"></i> <a data-toggle="collapse" data-parent="#limdebug" href="#collapseOneLIM">debug</a>
@@ -168,15 +168,11 @@
 									</ul>
 								</li>
 							</ul>
-							<?php
 
+							<?php
 					}
 
 	} else {
 		?><p><em>Waiting for API Key Modal....</em></p><?php
 	}
-
-
-
-
 ?>
