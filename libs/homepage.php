@@ -20,7 +20,7 @@
 				</div>
 
 		<div class="row-fluid">
-			<div class="span6">
+			<div class="span4">
 				<h2>What is this all about?</h2>
 				<p>Those wonderful people over at <a href="https://www.rackspace.co.uk">Rackspace</a> have created a <a href="https://www.rackspace.co.uk/cloud-hosting/cloud-products/cloud-monitoring/">Cloud Monitoring</a> product which can generate alarms when things happen - this tool can receive those alarms!</p>
 				<p>If you want to see for your self the <a href="<?php echo $www;?>/console/demo">demo console</a> shows all the test alarms which we have received.</p>
@@ -31,10 +31,21 @@
 					}
 					?>
 			</div>
-			<div class="span6">
+			<div class="span4">
 				<h2>How much does this cost?</h2>
 				<p>
 					<strong>Nothing</strong>. [rx]Alarm is hosted on <a href="http://openshift.redhat.com">Openshift Express</a> is is currently free, cloud monitoring is currently free to and this code behind this is <a href="https://github.com/linickx/rxalarm/">published on github</a> for all to see!... The catch is that it is released under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">NonCommercial Creative Commons</a> license which means you can't sell this... if you want to make money from rxalarms contact me first and perhaps we can come to an agreement ;-)
+				</p>
+
+			</div>
+			<div class="span4">
+				<h2>What do I need?</h2>
+				<p>
+					<ol>
+						<li>You need to be a <a href="http://www.rackspace.com/cloud/">rackspace cloud</a> customer; from the cloud console grab your username &amp; API Key.</li>
+						<li>You need a <a href="https://twitter.com/">twitter</a> account... because this site doesn't have a credentail manager. </li>
+						<li>You need <em>something</em> to monitor, you know, like a website or a server</li>
+					</ol>
 				</p>
 
 			</div>
