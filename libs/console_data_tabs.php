@@ -24,6 +24,11 @@
 		- ctd (tab: console-config-check-type-detail)
 		- ctt (tab: console-config-check-target)
 		- cte (tab: console-config-check-edit)
+		- ntd (tab: console-config-notification-type-detail)
+		- cne (tab: console-config-notification-edit)
+		- cnpe (tab: console-config-notificationplan-edit)
+		- ald (tab: console-config-alarm-detail - for add form)
+		- cae (tab: console-config-alarm-edit)
 
 
 	**/
@@ -92,7 +97,22 @@
 			break;
 		case "not":
 			require_once('../libs/console_tab_config_not.php'); // Config Tab (Notifications)	
-			break;							
+			break;
+		case "ntd":
+			require_once('../libs/console_tab_config_not_details.php'); // Notification Details (for add new form)
+			break;
+		case "cne":
+			require_once('../libs/console_tab_config_not_edit.php'); // Config Tab (Notifications -> Edit Form)
+			break;
+		case "cnpe":
+			require_once('../libs/console_tab_config_notp_edit.php'); // Config Tab (Notification Plans -> Edit Form)
+			break;
+		case "ald":
+			require_once('../libs/console_tab_config_alm_details.php'); // details for Alarm form.
+			break;
+		case "cae":
+			require_once('../libs/console_tab_config_alm_edit.php'); // Config Tab (Alarms -> Edit Form)
+			break;										
 		default:
 			die('404: Data not found');
 	}
