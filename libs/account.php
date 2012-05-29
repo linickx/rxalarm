@@ -10,7 +10,16 @@
 	// User, is OK - lets do something.
 
 	$title = "Account";
-	$head = "";
+	
+	// scripts required for audit tab
+	$head = '	<script src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>';
+	$head .= "\n";
+	$head .= '	<link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">';
+	$head .= "\n";
+	$head .= '<link rel="stylesheet" type="text/css" href="' . $www . '/inc/dt.css">';
+	$head .= "\n";
+	$head .= '<script type="text/javascript" charset="utf-8" language="javascript" src="' . $www . '/inc/dt.js"></script>';
+
 	$nav = "";
 
 	print_html5_head($title, $head, $nav);

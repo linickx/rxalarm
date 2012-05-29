@@ -6,10 +6,12 @@
 
 	d = data type
 		- alarms
+		- alarmhistory (alarm history)
 		- tab (html content)
 		- nua (New User Automagic)
 		- num (New User Manual)
 		- ays (Account / You / Settings)
+		- aau (Account / Audit)
 		- css (Console/Config -> Server -> Save)
 		- csa (Console/Config -> Server -> Add)
 		- csd (Console/Config -> Server -> Delete)
@@ -115,7 +117,13 @@ switch ($_REQUEST['d']) {
 			break;
 		case "cad":
 			require_once('../libs/console_data_config_alarm_del.php'); // Delete Alarm Config
-			break;																
+			break;
+		case "alarmhistory":
+			require_once('../libs/alarm_data_history.php'); // Alarm History
+			break;
+		case "aau":
+			require_once('../libs/account_data_audit.php'); // Account -> Audit (data for table)
+			break;																		
 		default:
 			die('404: Data not found');
 	}

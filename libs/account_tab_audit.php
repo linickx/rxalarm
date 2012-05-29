@@ -83,8 +83,6 @@
 				</ul>
 			</div>
 
-			<h4>Resource Limits</h4>
-
 			<div class="accordion" id="auddebug">
 				<div class="accordion-group" style="border:none;">
 				    <div id="collapseOneAUD" class="accordion-body collapse">
@@ -97,7 +95,54 @@
 				</div>
 			</div>
 
-			Some text
+			<script type="text/javascript" charset="utf-8">
+				$(document).ready(function() {
+
+					// Alarms Table
+			
+					oTable = $('#my_table_id').dataTable( {
+						"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+
+							switch(aData[2]) {
+								case 'FAIL':
+									$('td:eq(2)', nRow).addClass('redText');
+									break;
+								case 'OK':
+									$('td:eq(2)', nRow).addClass('greenText');
+									break;
+								default:
+									break;			
+							}
+
+						},
+						"bAutoWidth": false,
+						"bProcessing": true,
+						"sPaginationType": "bootstrap",
+						"aaSorting": [[ 0, "desc" ]],
+						"oLanguage": {
+							"sLengthMenu": "_MENU_ records per page"
+						},
+						"sAjaxSource": '<?php echo $www;?>/data.php?d=aau'
+					} );
+
+					oTable.fnReloadAjax();
+			
+				} );
+			</script>
+
+			<table id="my_table_id" class="table table-striped">
+				<thead>
+					<tr>
+						<th>Time</th>
+						<th>Action</th>
+						<th>Status</th>
+						<th>Url</th>
+						<th>Payload</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
 			<?php
 		}
 

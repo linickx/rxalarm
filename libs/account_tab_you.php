@@ -25,40 +25,6 @@
 	    $tzlist[] = DateTimeZone::listIdentifiers($mask);
 	}
 
-	if (isset($_COOKIE['rxalarm']['rsuid'])) { 
-
-			$alarm = "info";
-
-		if (!isset($_COOKIE['rxalarm']['rsapi'])) {
-			$alarm = "error";
-		}
-
-		if (!isset($_COOKIE['rxalarm']['rsloc'])) {
-			$alarm = "error";
-		}
-
-		if ($alarm == "error") {
-			$msg = '<strong>Error:</strong> Something is wrong with your cookies! <br /> Please re-set them here: <a href="' . $www . '/logout/rs">here</a>.';
-		} else {
-			$msg = '<strong>Info:</strong> I just wanted to let you know that we have detected your rackspace cookie... Don\'t worrry,  it \'s not a problem! <br> You can view them under the <b><i>API Limits</i></b> section.';
-		}
-
-		?>
-		<script type="text/javascript" charset="utf-8">
-		$(document).ready(function() {
-
-			// close any open alerts.
-
-			function autoclose() {
-				$(".alert").alert('close')
-			}
-			setTimeout(autoclose, 10000);
-		} );
-		</script>
-		<div class="alert alert-<?php echo $alarm; ?>"><a class="close" data-dismiss="alert" href="#">×</a><?php echo $msg;?></div>
-		<?php
-	}
-
 ?>
 
 <h3>Your Settings <small>- bits you can change</small></h3>
